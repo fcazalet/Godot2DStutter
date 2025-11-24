@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw513gfosjon3"]
+
+[ext_resource type="Script" uid="uid://bb6h3lpqmligt" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dgmt1q7vl8obr" path="res://icon.svg" id="2_h2yge"]
+
+[sub_resource type="Curve2D" id="Curve2D_0e48y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 182, 96, 0, 0, 0, 0, 1032, 96)
+}
+point_count = 2
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+color = Color(0.768705, 0.654541, 0.442408, 1)
+texture = ExtResource("2_h2yge")
+polygon = PackedVector2Array(1220, -25, -34, -74, -25, 682, 1217, 676)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(551, 308)
+texture = ExtResource("2_h2yge")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_0e48y")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(182, 96)
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+texture = ExtResource("2_h2yge")
